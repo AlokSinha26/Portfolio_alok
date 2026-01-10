@@ -10,12 +10,12 @@ import { toast } from 'sonner';
 const socialLinks = [
   {
     icon: Github,
-    href: "https://github.com/",
+    href: "https://github.com/AlokSinha26",
     label: "GitHub",
   },
   {
     icon: Linkedin,
-    href: "https://linkedin.com/in/",
+    href: "https://www.linkedin.com/in/sinhalok7",
     label: "LinkedIn",
   },
   {
