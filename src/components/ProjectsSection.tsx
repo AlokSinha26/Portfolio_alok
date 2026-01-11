@@ -11,6 +11,7 @@ const projects = [
     techStack: ["Python", "Machine Learning", "Pandas", "Scikit-learn"],
     gradient: "from-purple-500/20 to-pink-500/20",
     borderColor: "hover:border-purple-500/50",
+    link: "https://github.com/AlokSinha26/Movie-Recommendation-using-ML-",
   },
   {
     icon: Bot,
@@ -19,6 +20,7 @@ const projects = [
     techStack: ["JavaScript", "AI Tools", "Speech-to-Text", "Text-to-Speech", "NLP"],
     gradient: "from-blue-500/20 to-cyan-500/20",
     borderColor: "hover:border-blue-500/50",
+    link: "",
   },
   {
     icon: ShoppingCart,
@@ -27,6 +29,7 @@ const projects = [
     techStack: ["HTML", "CSS", "JavaScript"],
     gradient: "from-orange-500/20 to-amber-500/20",
     borderColor: "hover:border-orange-500/50",
+    link: "",
   },
   {
     icon: Cloud,
@@ -35,6 +38,7 @@ const projects = [
     techStack: ["JavaScript", "REST API", "HTML", "CSS"],
     gradient: "from-emerald-500/20 to-teal-500/20",
     borderColor: "hover:border-emerald-500/50",
+    link: "",
   },
 ];
 
@@ -74,7 +78,11 @@ const ProjectsSection = () => {
                   <div className={`w-12 h-12 rounded-lg bg-gradient-to-br ${project.gradient} flex items-center justify-center`}>
                     <project.icon className="h-6 w-6 text-foreground" />
                   </div>
-                  <ExternalLink className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors cursor-pointer" />
+                  {project.link && (
+                    <a href={project.link} target="_blank" rel="noopener noreferrer">
+                      <ExternalLink className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors cursor-pointer" />
+                    </a>
+                  )}
                 </div>
                 
                 <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors">
