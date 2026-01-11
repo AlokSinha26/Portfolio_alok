@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { ExternalLink, Film, Bot, ShoppingCart, Cloud } from 'lucide-react';
+import { Film, Bot, ShoppingCart, Cloud } from 'lucide-react';
 
 const projects = [
   {
@@ -20,7 +20,7 @@ const projects = [
     techStack: ["JavaScript", "AI Tools", "Speech-to-Text", "Text-to-Speech", "NLP"],
     gradient: "from-blue-500/20 to-cyan-500/20",
     borderColor: "hover:border-blue-500/50",
-    link: "",
+    link: "https://github.com/AlokSinha26/ten-days-of-voice-agents-2025",
   },
   {
     icon: ShoppingCart,
@@ -29,7 +29,7 @@ const projects = [
     techStack: ["HTML", "CSS", "JavaScript"],
     gradient: "from-orange-500/20 to-amber-500/20",
     borderColor: "hover:border-orange-500/50",
-    link: "",
+    link: "https://github.com/AlokSinha26/amazon-clone",
   },
   {
     icon: Cloud,
@@ -38,7 +38,7 @@ const projects = [
     techStack: ["JavaScript", "REST API", "HTML", "CSS"],
     gradient: "from-emerald-500/20 to-teal-500/20",
     borderColor: "hover:border-emerald-500/50",
-    link: "",
+    link: "https://github.com/AlokSinha26/weather-App",
   },
 ];
 
@@ -74,20 +74,22 @@ const ProjectsSection = () => {
             >
               <div className={`h-2 bg-gradient-to-r ${project.gradient}`} />
               <div className="p-6">
-                <div className="flex items-start justify-between mb-4">
+                <div className="flex items-start mb-4">
                   <div className={`w-12 h-12 rounded-lg bg-gradient-to-br ${project.gradient} flex items-center justify-center`}>
                     <project.icon className="h-6 w-6 text-foreground" />
                   </div>
-                  {project.link && (
-                    <a href={project.link} target="_blank" rel="noopener noreferrer">
-                      <ExternalLink className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors cursor-pointer" />
-                    </a>
-                  )}
                 </div>
                 
-                <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors">
-                  {project.title}
-                </h3>
+                <a 
+                  href={project.link} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-block"
+                >
+                  <h3 className="text-xl font-semibold mb-3 text-foreground hover:text-primary transition-colors cursor-pointer hover:underline underline-offset-4">
+                    {project.title}
+                  </h3>
+                </a>
                 
                 <p className="text-muted-foreground text-sm leading-relaxed mb-4">
                   {project.description}
