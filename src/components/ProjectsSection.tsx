@@ -14,9 +14,9 @@ const projects = [
   },
   {
     icon: Bot,
-    title: "AI-Based Website Generator",
-    description: "A tool that leverages AI to automatically generate websites based on user requirements and preferences.",
-    techStack: ["JavaScript", "AI Tools", "HTML", "CSS"],
+    title: "AI Voice Agent",
+    description: "An AI-powered voice agent capable of understanding natural language, handling real-time conversations, and responding intelligently using speech-to-text and text-to-speech technologies.",
+    techStack: ["JavaScript", "AI Tools", "Speech-to-Text", "Text-to-Speech", "NLP"],
     gradient: "from-blue-500/20 to-cyan-500/20",
     borderColor: "hover:border-blue-500/50",
   },
