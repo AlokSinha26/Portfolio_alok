@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Download } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 const navLinks = [
   { name: 'About', href: '#about' },
@@ -44,6 +45,16 @@ const Navbar = () => {
                 {link.name}
               </a>
             ))}
+            <Button
+              asChild
+              size="sm"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground font-medium"
+            >
+              <a href="/Alok_Sinha_Resume.pdf" download>
+                <Download className="mr-2 h-4 w-4" />
+                Resume
+              </a>
+            </Button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -73,6 +84,15 @@ const Navbar = () => {
                 {link.name}
               </a>
             ))}
+            <a
+              href="/Alok_Sinha_Resume.pdf"
+              download
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="flex items-center py-3 px-4 text-primary hover:text-primary/80 transition-colors font-medium"
+            >
+              <Download className="mr-2 h-4 w-4" />
+              Resume
+            </a>
           </motion.div>
         )}
       </div>
