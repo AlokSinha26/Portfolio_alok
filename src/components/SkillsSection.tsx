@@ -3,6 +3,23 @@ import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Code, Globe, Wrench, Cpu } from 'lucide-react';
 
+const skillLinks: Record<string, string> = {
+  "C++": "https://www.geeksforgeeks.org/c-plus-plus/",
+  "C": "https://www.geeksforgeeks.org/c-programming-language/",
+  "Kotlin": "https://www.geeksforgeeks.org/kotlin-programming-language/",
+  "JavaScript": "https://www.geeksforgeeks.org/javascript/",
+  "HTML": "https://www.geeksforgeeks.org/html/",
+  "CSS": "https://www.geeksforgeeks.org/css/",
+  "React": "https://www.geeksforgeeks.org/reactjs/",
+  "DSA": "https://www.geeksforgeeks.org/data-structures/",
+  "DBMS": "https://www.geeksforgeeks.org/dbms/",
+  "Git": "https://www.geeksforgeeks.org/git/",
+  "REST APIs": "https://www.geeksforgeeks.org/rest-api-introduction/",
+  "Machine Learning": "https://www.geeksforgeeks.org/machine-learning/",
+  "Recommendation Systems": "https://www.geeksforgeeks.org/recommendation-system/",
+  "Data Analysis": "https://www.geeksforgeeks.org/data-analysis/",
+};
+
 const skillCategories = [
   {
     icon: Code,
@@ -78,12 +95,15 @@ const SkillsSection = () => {
               
               <div className="flex flex-wrap gap-2">
                 {category.skills.map((skill) => (
-                  <span
+                  <a
                     key={skill}
-                    className="px-3 py-1.5 text-sm bg-secondary/50 rounded-md text-muted-foreground group-hover:text-foreground transition-colors"
+                    href={skillLinks[skill]}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-3 py-1.5 text-sm bg-secondary/50 rounded-md text-muted-foreground hover:text-primary hover:bg-secondary/80 hover:shadow-[0_0_8px_hsl(var(--primary)/0.3)] transition-all duration-200 cursor-pointer"
                   >
                     {skill}
-                  </span>
+                  </a>
                 ))}
               </div>
             </motion.div>
