@@ -2,7 +2,15 @@ import { motion } from 'framer-motion';
 import { ArrowDown, ExternalLink, Download } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { SparklesCore } from '@/components/ui/sparkles';
+import { Typewriter } from '@/components/ui/typewriter';
 import profilePhoto from '@/assets/profile-photo.png';
+
+const roles = [
+  "Android & Web Developer",
+  "AI/ML Enthusiast",
+  "Computer Engineering Student",
+  "Problem Solver",
+];
 
 const HeroSection = () => {
   return (
@@ -70,14 +78,21 @@ const HeroSection = () => {
             <span className="gradient-text">Alok Sinha</span>
           </motion.h1>
 
-          <motion.p
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="text-lg md:text-xl text-muted-foreground mb-4 font-medium"
+            className="text-lg md:text-xl text-muted-foreground mb-4 font-medium h-8"
           >
-            Final-year Computer Engineering Student | Android & Web Developer | AI/ML Enthusiast
-          </motion.p>
+            <Typewriter
+              words={roles}
+              speed={80}
+              delayBetweenWords={2000}
+              cursor={true}
+              cursorChar="|"
+              className="text-primary"
+            />
+          </motion.div>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
