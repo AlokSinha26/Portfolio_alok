@@ -1,7 +1,13 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Code, Globe, Wrench, Cpu } from 'lucide-react';
+import { Code, Globe, Wrench, Cpu, ExternalLink } from 'lucide-react';
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from '@/components/ui/tooltip';
 
 const skillLinks: Record<string, string> = {
   "C++": "https://www.geeksforgeeks.org/c-plus-plus/",
@@ -51,6 +57,14 @@ const SkillsSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
+  const handleSkillClick = (skill: string) => {
+    console.log(`[Analytics] Skill clicked: ${skill}`, {
+      timestamp: new Date().toISOString(),
+      skill,
+      url: skillLinks[skill],
+    });
+  };
+
   return (
     <section id="skills" className="py-20 md:py-32 relative" ref={ref}>
       {/* Background Pattern */}
@@ -94,17 +108,27 @@ const SkillsSection = () => {
               <h3 className="text-lg font-semibold mb-4">{category.title}</h3>
               
               <div className="flex flex-wrap gap-2">
-                {category.skills.map((skill) => (
-                  <a
-                    key={skill}
-                    href={skillLinks[skill]}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-3 py-1.5 text-sm bg-secondary/50 rounded-md text-muted-foreground hover:text-primary hover:bg-secondary/80 hover:shadow-[0_0_8px_hsl(var(--primary)/0.3)] transition-all duration-200 cursor-pointer"
-                  >
-                    {skill}
-                  </a>
-                ))}
+                <TooltipProvider delayDuration={200}>
+                  {category.skills.map((skill) => (
+                    <Tooltip key={skill}>
+                      <TooltipTrigger asChild>
+                        <a
+                          href={skillLinks[skill]}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={() => handleSkillClick(skill)}
+                          className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm bg-secondary/50 rounded-md text-muted-foreground hover:text-primary hover:bg-secondary/80 hover:shadow-[0_0_12px_hsl(var(--primary)/0.4)] hover:scale-105 transition-all duration-200 cursor-pointer"
+                        >
+                          {skill}
+                          <ExternalLink className="h-3 w-3 opacity-60" />
+                        </a>
+                      </TooltipTrigger>
+                      <TooltipContent side="top" className="bg-background border border-border">
+                        <p>Learn on GeeksforGeeks</p>
+                      </TooltipContent>
+                    </Tooltip>
+                  ))}
+                </TooltipProvider>
               </div>
             </motion.div>
           ))}
