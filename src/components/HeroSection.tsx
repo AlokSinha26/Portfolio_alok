@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ArrowDown, ExternalLink } from 'lucide-react';
+import { ArrowDown, ExternalLink, Download } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { SparklesCore } from '@/components/ui/sparkles';
 
@@ -91,6 +91,17 @@ const HeroSection = () => {
               className="border-primary/50 text-foreground hover:bg-primary/10 font-semibold px-8"
             >
               <a href="#contact">Contact Me</a>
+            </Button>
+            <Button
+              asChild
+              variant="ghost"
+              size="lg"
+              className="text-foreground hover:bg-primary/10 font-semibold px-8"
+            >
+              <a href="/Alok_Sinha_Resume.pdf" download>
+                <Download className="mr-2 h-4 w-4" />
+                Resume
+              </a>
             </Button>
           </motion.div>
         </div>
